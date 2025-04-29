@@ -4,6 +4,7 @@ Este repositório contém dois projetos web desenvolvidos com o framework **Code
 - Luan Felipe Tenroller
 - Luiz Gustavo da Silva Przygoda
 - Nathaly Camargo do Nascimento
+- Alcides Antonio Lorenske Neto
 
 ---
 
