@@ -32,7 +32,7 @@ Este repositório contém dois projetos web desenvolvidos com o framework **Code
 ## 💡 Ideia 2: Catálogo de Plantas Ornamentais
 
 ### 🔹 Funcionalidades
-- CRUD de plantas (nome popular, nome científico, cuidados, imagem)
+- CRUD de plantas (nome popular, nome científico e cuidados)
 - Filtro por tipo (ex: Suculentas, Floríferas, Folhagens)
 - Marcar plantas como favoritas para consultar depois
 
