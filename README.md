@@ -1,42 +1,126 @@
-Este repositório contém dois projetos web desenvolvidos com o framework **CodeIgniter**, voltados para aprendizado prático de PHP e MVC. Ambos os sistemas têm foco em CRUDs completos, design agradável e funcionalidades úteis.
+# 🌿 Catálogo de Plantas Ornamentais — Projeto Acadêmico
+
+Este repositório contém um sistema web de **cadastro e gerenciamento de plantas ornamentais**, desenvolvido com **CodeIgniter 4**, **PHP** e **MySQL**. O projeto tem fins acadêmicos e foi pensado para exercitar os conceitos de CRUD, arquitetura MVC e banco de dados relacional.
+
+---
+
+## 👨‍💻 Tecnologias Utilizadas
+
+- **PHP 8.x**
+- **CodeIgniter 4**
+- **MySQL**
+- **HTML/CSS** (views simples e funcionais)
+- **XAMPP** (para ambiente local)
+
+---
+
+## 🔧 Funcionalidades
+
+- CRUD completo de plantas (nome popular, nome científico, cuidados)
+- CRUD de tipos de plantas (Suculentas, Floríferas, Folhagens etc.)
+- Marcar e desmarcar plantas como favoritas
+- Filtro por tipo de planta
+- Relacionamento entre plantas e tipos
+
+---
+
+## 🎨 Visual
+
+- Interface limpa e amigável
+- Foco na estética, com imagens grandes e categorização clara
+- Design inspirado em aplicativos de jardinagem
+
+---
 
 ## 👥 Integrantes
-- Luan Felipe Tenroller
-- Luiz Gustavo da Silva Przygoda
-- Nathaly Camargo do Nascimento
-- Alcides Antonio Lorenske Neto
+
+- **Luan Felipe Tenroller**
+- **Luiz Gustavo da Silva Przygoda**
+- **Nathaly Camargo do Nascimento**
+- **Alcides Antonio Lorenske Neto**
 
 ---
 
-## 🛠️ Framework Utilizado
-- **CodeIgniter**
-- PHP 7.4+
-- MySQL
+## ⚙️ Como Configurar o Projeto
+
+### 1. Clonar ou copiar o projeto
+
+Coloque a pasta do projeto no diretório do seu servidor local, como por exemplo:
+
+```
+c:\xampp\htdocs\prog3-crud\crud-plantas
+```
 
 ---
 
-## 💡 Ideia 1: Sistema de Receitas Culinárias
+### 2. Criar o banco de dados
 
-### 🔹 Funcionalidades
-- Cadastro, edição, visualização e exclusão de receitas (título, ingredientes, modo de preparo, imagem)
-- CRUD de categorias (ex: Sobremesas, Salgado, Fitness)
-- Comentários simples nas receitas
+Use o phpMyAdmin ou terminal do MySQL:
 
-### 🎨 Visual
-- Estilo blog de culinária / foodie
-- Cards com fotos chamativas das receitas
-- Página individual para cada receita, com layout detalhado e agradável
+```sql
+CREATE DATABASE plantas_db;
+```
 
 ---
 
-## 💡 Ideia 2: Catálogo de Plantas Ornamentais
+### 3. Configurar o arquivo `.env`
 
-### 🔹 Funcionalidades
-- CRUD de plantas (nome popular, nome científico e cuidados)
-- Filtro por tipo (ex: Suculentas, Floríferas, Folhagens)
-- Marcar plantas como favoritas para consultar depois
+Renomeie `.env.example` para `.env` (se necessário) e configure os dados do banco de dados:
 
-### 🎨 Visual
-- Foco na estética e imagens grandes
-- Design inspirado em aplicativos de jardinagem
-- Interface limpa e amigável para amantes de plantas
+```ini
+app.baseURL = 'http://localhost/crud-plantas/public/'
+
+database.default.hostname = 127.0.0.1
+database.default.database = plantas_db
+database.default.username = root
+database.default.password = SUA_SENHA_DO_MYSQL
+database.default.DBDriver = MySQLi
+database.default.port = 3306
+```
+
+> ⚠️ Se você utiliza o MySQL fora do XAMPP, mantenha apenas o **Apache** do XAMPP rodando.
+
+---
+
+### 4. Instalar dependências (se necessário)
+
+Caso o projeto utilize Composer:
+
+```bash
+composer install
+```
+
+---
+
+### 5. Rodar as migrations
+
+Abra o terminal na raiz do projeto e execute:
+
+```bash
+php spark migrate
+```
+
+Isso criará as tabelas necessárias no banco de dados.
+
+---
+
+### 6. Iniciar o servidor
+
+- **Com Apache do XAMPP:**
+
+  Acesse: [http://localhost/crud-plantas/public/](http://localhost/crud-plantas/public/)
+
+- **Com o servidor embutido do CodeIgniter:**
+
+  ```bash
+  php spark serve
+  ```
+
+  Acesse: [http://localhost:8080/](http://localhost:8080/)
+
+---
+
+## ✅ Observações Finais
+
+- Certifique-se de que as extensões `mysqli` e `pdo_mysql` estão habilitadas no `php.ini`.
+- Este projeto é acadêmico, mas pode ser expandido para incluir autenticação, upload de imagens, responsividade e mais filtros avançados.
