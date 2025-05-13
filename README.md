@@ -27,7 +27,7 @@ Este repositório contém um sistema web de **cadastro e gerenciamento de planta
 ## 🎨 Visual
 
 - Interface limpa e amigável
-- Foco na estética, com imagens grandes e categorização clara
+- Foco na estética com categorização clara
 - Design inspirado em aplicativos de jardinagem
 
 ---
