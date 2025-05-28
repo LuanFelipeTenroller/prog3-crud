@@ -21,15 +21,17 @@
                     <strong><?= esc($planta['nome']) ?></strong> - <?= esc($planta['especie']) ?>
                 </div>
                 <div>
+                    <form action="<?= base_url('favoritos/store/' . $planta['id']) ?>" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-sm" style="background: none; border: none; color: gray;">
+                            <i class="bi bi-star" style="font-size: 1.3rem;"></i>
+                        </button>
+                    </form>
                     <a href="<?= base_url('plantas/view/' . $planta['id']) ?>"
                         class="btn btn-sm me-1"
                         style="background-color: #5f7e49; color: white; border-radius: 5px;">
                         Ver
                     </a>
                     <a href="<?= base_url('plantas/edit/' . $planta['id']) ?>" class="btn btn-sm btn-primary me-1">Editar</a>
-                    <form action="<?= base_url('favoritos/store/' . $planta['id']) ?>" method="post" style="display:inline;">
-                        <button type="submit" class="btn btn-sm btn-warning">Favoritar</button>
-                    </form>
                 </div>
             </li>
         <?php endforeach; ?>
