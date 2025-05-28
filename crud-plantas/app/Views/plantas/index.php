@@ -21,7 +21,11 @@
                     <strong><?= esc($planta['nome']) ?></strong> - <?= esc($planta['especie']) ?>
                 </div>
                 <div>
-                    <a href="<?= base_url('plantas/view/' . $planta['id']) ?>" class="btn btn-sm btn-secondary me-1">Ver</a>
+                    <a href="<?= base_url('plantas/view/' . $planta['id']) ?>"
+                        class="btn btn-sm me-1"
+                        style="background-color: #5f7e49; color: white; border-radius: 5px;">
+                        Ver
+                    </a>
                     <a href="<?= base_url('plantas/edit/' . $planta['id']) ?>" class="btn btn-sm btn-primary me-1">Editar</a>
                     <form action="<?= base_url('favoritos/store/' . $planta['id']) ?>" method="post" style="display:inline;">
                         <button type="submit" class="btn btn-sm btn-warning">Favoritar</button>
