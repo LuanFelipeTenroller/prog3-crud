@@ -43,12 +43,12 @@
 
             <!-- Botões alinhados à direita e com margem inferior -->
             <div class="mt-3 mb-5">
-                <button type="submit" class="btn" style="background-color: #5f7e49; color: white; border-radius: 20px; padding-inline: 20px;">
-                    Atualizar
-                </button>
                 <a href="<?= base_url('plantas') ?>" class="btn ms-2" style="border: 1px solid #5f7e49; color: #5f7e49; background-color: white; border-radius: 20px; padding-inline: 20px;">
                     Cancelar
                 </a>
+                <button type="submit" class="btn" style="background-color: #5f7e49; color: white; border-radius: 20px; padding-inline: 20px;">
+                    Atualizar
+                </button>
             </div>
         </div>
     </div>
