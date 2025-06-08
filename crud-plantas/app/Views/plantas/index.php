@@ -22,14 +22,22 @@
                 </div>
                 <div>
                     <a href="<?= base_url('plantas/view/' . $planta['id']) ?>"
-                        class="btn btn-sm me-1"
-                        style="background-color: #5f7e49; color: white; border-radius: 5px;">
+                       class="btn btn-sm me-1"
+                       style="background-color: #5f7e49; color: white; border-radius: 5px;">
                         Ver
                     </a>
-                    <a href="<?= base_url('plantas/edit/' . $planta['id']) ?>" class="btn btn-sm btn-primary me-1">Editar</a>
-                    <form action="<?= base_url('favoritos/store/' . $planta['id']) ?>" method="post" style="display:inline;">
-                        <button type="submit" class="btn btn-sm btn-warning">Favoritar</button>
-                    </form>
+                    <?php if ($usuario_logado_id == $planta['usuario_cadastro_id']) : ?>
+                        <a href="<?= base_url('plantas/edit/' . $planta['id']) ?>" class="btn btn-sm btn-primary me-1">Editar</a>
+                    <?php endif; ?>
+
+
+                    <button type="button"
+                        class="btn btn-sm btn-favoritar"
+                        data-id="<?= $planta['id'] ?>"
+                        aria-label="Favoritar planta"
+                        style="background: none; border: none; color: #f0ad4e; font-size: 1.3rem;">
+                        <i class="bi <?= !empty($planta['favorito']) ? 'bi-star-fill' : 'bi-star' ?>"></i>
+                    </button>
                 </div>
             </li>
         <?php endforeach; ?>
@@ -39,7 +47,6 @@
 <?php endif; ?>
 
 <?php include APPPATH . 'Views/templates/footer.php'; ?>
-
 
 <style>
     .custom-buscar-btn {
@@ -53,3 +60,50 @@
         color: white;
     }
 </style>
+
+<script>
+    const baseUrl = "<?= base_url() ?>/";
+    document.querySelectorAll('.btn-favoritar').forEach(button => {
+        button.addEventListener('click', async () => {
+            const plantaId = button.getAttribute('data-id');
+            const token = localStorage.getItem('token');
+
+            if (!token) {
+                alert('Usuário não autenticado.');
+                return;
+            }
+
+            if (token) {
+    const payloadBase64 = token.split('.')[1];
+    const payloadJson = atob(payloadBase64.replace(/-/g, '+').replace(/_/g, '/'));
+    console.log('Payload JWT:', JSON.parse(payloadJson));
+}
+
+            try {
+                const response = await fetch(`${baseUrl}favoritos/store/${plantaId}`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    const icon = button.querySelector('i');
+                    if (result.favorito) {
+                        icon.classList.replace('bi-star', 'bi-star-fill');
+                    } else {
+                        icon.classList.replace('bi-star-fill', 'bi-star');
+                    }
+                } else {
+                    alert(result.error || "Erro ao favoritar.");
+                }
+            } catch (error) {
+                console.error('Erro na requisição:', error);
+                alert("Erro na requisição.");
+            }
+        });
+    });
+</script>

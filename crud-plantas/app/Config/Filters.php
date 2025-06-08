@@ -34,6 +34,7 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
+        'jwt'           => \App\Filters\JwtAuth::class,
     ];
 
     /**
@@ -78,6 +79,7 @@ class Filters extends BaseFilters
             // 'secureheaders',
         ],
     ];
+    
 
     /**
      * List of filter aliases that works on a
@@ -103,5 +105,7 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+        'jwt' => ['before' => ['plantas/*', 'plantas', 'favoritos/*', 'favoritos']],
+    ];
 }

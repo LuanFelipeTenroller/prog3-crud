@@ -10,7 +10,7 @@ class Tipos extends Controller
     public function index()
     {
         $model = new TipoModel();
-        $data['tipos'] = $model->findAll();
+        $data['tipos'] = $model->orderBy('nome', 'ASC')->findAll();
 
         return view('tipos/index', $data);
     }

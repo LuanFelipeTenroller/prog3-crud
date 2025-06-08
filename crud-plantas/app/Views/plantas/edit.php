@@ -2,7 +2,7 @@
 
 <h2 style="color: #3a5a3c;" class="mt-4 mb-4">Editar Planta</h2>
 
-<form action="<?= base_url('plantas/update/' . $planta['id']) ?>" method="post">
+<form action="<?= base_url('plantas/update/' . $planta['id']) ?>" method="post" enctype="multipart/form-data">
     <div class="row">
         <!-- Coluna esquerda -->
         <div class="col-md-6">
@@ -51,7 +51,33 @@
                 </button>
             </div>
         </div>
+        <div class="col-12">
+            <div class="mb-3">
+                <label for="imagem" class="form-label">Imagem:</label>
+                <input type="file" name="imagem" id="imagem" class="form-control" accept="image/*">
+                <div id="preview-container" class="mt-2">
+                    <?php if (!empty($planta['imagem'])): ?>
+                        <img id="imagem-atual" src="<?= base_url('uploads/' . $planta['imagem']) ?>" alt="Imagem atual" style="max-width: 200px; border-radius: 10px;">
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
     </div>
 </form>
+
+<script>
+    document.getElementById('imagem').addEventListener('change', function(event) {
+        const previewContainer = document.getElementById('preview-container');
+        previewContainer.innerHTML = '';
+        const file = event.target.files[0];
+        if (file) {
+            const img = document.createElement('img');
+            img.style.maxWidth = '200px';
+            img.style.borderRadius = '10px';
+            img.src = URL.createObjectURL(file);
+            previewContainer.appendChild(img);
+        }
+    });
+</script>
 
 <?php include APPPATH . 'Views/templates/footer.php'; ?>

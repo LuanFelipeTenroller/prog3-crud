@@ -29,7 +29,7 @@
     <div class="container">
 
         <?php
-        // Detecta a rota atual
+
         $request = \Config\Services::request();
         $uri = $request->getPath();
         $rotaAtual = trim($uri, '/');
@@ -51,5 +51,31 @@
                         <i class="bi bi-star-fill"></i> Favoritos
                     </a>
                 </div>
+                <div class="navbar-nav ms-auto d-flex flex-row gap-3">
+                    <!-- Ícone do perfil que abre o modal -->
+                    <a class="nav-link" href="#" id="perfilIcon" data-bs-toggle="modal" data-bs-target="#perfilModal" title="Perfil">
+                        <i class="bi bi-person-circle" style="font-size: 1.8rem;"></i>
+                    </a>
+                </div>
             </nav>
+
+        <!-- Modal do perfil -->
+        <div class="modal fade" id="perfilModal" tabindex="-1" aria-labelledby="perfilModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-end">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="perfilModalLabel">Opções do Perfil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body d-flex flex-column gap-2">
+                <a href="<?= base_url('perfil') ?>" class="btn btn-outline-success w-100">
+                    <i class="bi bi-person"></i> Meu Perfil
+                </a>
+                <a href="<?= base_url('logout') ?>" class="btn btn-outline-danger w-100">
+                    <i class="bi bi-box-arrow-right"></i> Sair
+                </a>
+            </div>
+            </div>
+        </div>
+        </div>
         <?php endif; ?>

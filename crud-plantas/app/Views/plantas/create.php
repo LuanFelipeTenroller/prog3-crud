@@ -2,7 +2,7 @@
 
 <h2 style="color: #3a5a3c;" class="mt-4 mb-4">Adicionar Nova Planta</h2>
 
-<form action="<?= base_url('plantas/store') ?>" method="post">
+<form action="<?= base_url('plantas/store') ?>" method="post" enctype="multipart/form-data">
     <div class="row">
         <!-- Coluna esquerda -->
         <div class="col-md-6">
@@ -49,7 +49,56 @@
                 </button>
             </div>
         </div>
+
+        <div class="mb-3">
+            <label for="imagem" class="form-label">Imagem:</label>
+            <input type="file" name="imagem" id="imagem" class="form-control" accept="image/*">
+            <div id="preview-container" class="mt-2"></div>
+        </div>
     </div>
 </form>
+
+<script>
+    document.getElementById('imagem').addEventListener('change', function(event) {
+        const previewContainer = document.getElementById('preview-container');
+        previewContainer.innerHTML = ''; // Limpa o preview anterior
+
+        const file = event.target.files[0];
+        if (file) {
+            const img = document.createElement('img');
+            img.style.maxWidth = '200px';
+            img.style.borderRadius = '10px';
+            img.src = URL.createObjectURL(file);
+            previewContainer.appendChild(img);
+        }
+    });
+
+    document.querySelector('form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const token = localStorage.getItem('token');
+
+        const response = await fetch('<?= base_url('plantas/store') ?>', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + token,
+            },
+            body: formData,
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            alert('Planta salva com sucesso!');
+            window.location.href = '<?= base_url('plantas') ?>';
+        } else {
+            alert('Erro: ' + (result.error || 'Erro desconhecido'));
+        }
+    });
+</script>
+
 
 <?php include APPPATH . 'Views/templates/footer.php'; ?>
