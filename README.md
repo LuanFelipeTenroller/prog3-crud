@@ -48,6 +48,8 @@ Este repositório contém um sistema web de **cadastro e gerenciamento de planta
     * 📄 Projeto em PHP, englobando todas as linguagens e ferramentas utilizadas
 #
 
+---
+
 ## ⚙️ Como Configurar o Projeto
 
 ### 1. Clonar ou copiar o projeto
