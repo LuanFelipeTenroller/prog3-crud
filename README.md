@@ -7,12 +7,12 @@ Este repositório contém um sistema web de **cadastro e gerenciamento de planta
 ## 👨‍💻 Tecnologias Utilizadas
 <table>
   <tr>
-    <td><b>**PHP 8.x**</b></td>
-    <td><b>**CodeIgniter 4**</b></td>
-    <td><b>**DBeaver**</b></td>
-    <td><b>**MySQL**</b></td>
-    <td><b>**HTML/CSS**</b></td>
-    <td><b>**XAMPP**</b></td>
+    <td><b>PHP 8.x</b></td>
+    <td><b>CodeIgniter 4</b></td>
+    <td><b>DBeaver</b></td>
+    <td><b>MySQL</b></td>
+    <td><b>HTML/CSS</b></td>
+    <td><b>XAMPP</b></td>
   </tr>
 </table>
 
