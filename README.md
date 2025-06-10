@@ -41,6 +41,13 @@ Este repositório contém um sistema web de **cadastro e gerenciamento de planta
 
 ---
 
+### **📦 Estrutura de Pastas**
+  * 📁 Docs
+    * 📄 Artigo CodeIgniter na Prática: Uso de um CRUD de Plantas Ornamentais
+  * 📁 crud-plantas
+    * 📄 Projeto em PHP, englobando todas as linguagens e ferramentas utilizadas
+#
+
 ## ⚙️ Como Configurar o Projeto
 
 ### 1. Clonar ou copiar o projeto
