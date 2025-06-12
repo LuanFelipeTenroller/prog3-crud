@@ -24,7 +24,7 @@ class ComentarioModel extends Model
         return $this->select('comentarios.*, usuarios.nome AS nome_usuario')
                     ->join('usuarios', 'usuarios.id = comentarios.usuario_id')
                     ->where('comentarios.planta_id', $plantaId)
-                    ->orderBy('comentarios.data_criacao', 'DESC')
+                    ->orderBy('comentarios.data_criacao', 'ASC')
                     ->findAll();
     }
 }
