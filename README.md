@@ -41,7 +41,7 @@ Este repositório contém um sistema web de **cadastro e gerenciamento de planta
 - **Luan Felipe Tenroller**
 - **Luiz Gustavo da Silva Przygoda**
 - **Nathaly Camargo do Nascimento**
-- **Alcides Antonio Lorenske Neto**
+- **Alcides Antonio Lorenski Neto**
 
 ---
 
