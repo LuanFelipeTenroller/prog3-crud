@@ -6,13 +6,14 @@ use CodeIgniter\Model;
 
 class UsuarioModel extends Model
 {
-    protected $table      = 'usuarios';
+    protected $table      = 'usuario';
     protected $primaryKey = 'id';
 
     protected $allowedFields = ['nome', 'email', 'senha', 'papel', 'data_criacao'];
 
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $createdField  = 'data_criacao';
+    protected $updatedField  = '';
 
     protected $validationRules = [
         'nome'       => 'required|min_length[3]',

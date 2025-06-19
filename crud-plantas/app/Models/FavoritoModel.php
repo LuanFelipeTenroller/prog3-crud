@@ -6,13 +6,14 @@ use CodeIgniter\Model;
 
 class FavoritoModel extends Model
 {
-    protected $table      = 'favoritos';
+    protected $table      = 'favorito';
     protected $primaryKey = 'id';
 
     protected $allowedFields = ['usuario_id', 'planta_id', 'data_registro'];
 
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $createdField  = 'data_registro';
+    protected $updatedField  = '';
 
     protected $validationRules = [
         'usuario_id' => 'required|integer',
@@ -21,9 +22,9 @@ class FavoritoModel extends Model
 
     public function getFavoritosWithPlantas($usuarioId)
     {
-        return $this->select('favoritos.*, plantas.nome as nome_planta, plantas.id as planta_id, favoritos.data_registro')
-            ->join('plantas', 'plantas.id = favoritos.planta_id')
-            ->where('favoritos.usuario_id', $usuarioId)
+        return $this->select('favorito.*, plantas.nome as nome_planta, plantas.id as planta_id, favorito.data_registro')
+            ->join('plantas', 'plantas.id = favorito.planta_id')
+            ->where('favorito.usuario_id', $usuarioId)
             ->orderBy('plantas.nome', 'ASC')
             ->findAll();
     }

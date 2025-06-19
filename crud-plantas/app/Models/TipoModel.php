@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class TipoModel extends Model
 {
-    protected $table      = 'tipos';
+    protected $table      = 'tipo';
     protected $primaryKey = 'id';
 
     protected $allowedFields = ['nome', 'descricao'];

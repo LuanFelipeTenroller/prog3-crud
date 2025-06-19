@@ -15,7 +15,7 @@ class CreateTables extends Migration
             'descricao'  => ['type' => 'TEXT', 'null' => true],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->createTable('tipos', true);
+        $this->forge->createTable('tipo', true);
 
         // Usuarios
         $this->forge->addField([
@@ -23,12 +23,11 @@ class CreateTables extends Migration
             'nome'         => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => false],
             'email'        => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => false, 'unique' => true],
             'senha'        => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => false],
-            'papel'        => ['type' => 'ENUM', 'constraint' => ['comum', 'admin'], 'default' => 'comum'],
-            'data_criacao' => ['type' => 'TIMESTAMP', 'default' => 'CURRENT_TIMESTAMP'],
+            'papel'        => ['type' => 'ENUM', 'constraint' => ['comum', 'admin'], 'null' => false],
+            'data_criacao' => ['type' => 'DATETIME', 'null' => false],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addUniqueKey('email');
-        $this->forge->createTable('usuarios', true);
+        $this->forge->createTable('usuario', true);
 
         // Plantas
         $this->forge->addField([
@@ -37,28 +36,28 @@ class CreateTables extends Migration
             'especie'       => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => true],
             'descricao'     => ['type' => 'TEXT', 'null' => true],
             'cuidados'      => ['type' => 'TEXT', 'null' => true],
-            'data_registro' => ['type' => 'TIMESTAMP', 'default' => 'CURRENT_TIMESTAMP'],
+            'data_registro' => ['type' => 'DATETIME', 'null' => false],
             'tipo_id'       => ['type' => 'INT', 'null' => true],
             'imagem'        => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true],
             'usuario_id'    => ['type' => 'INT', 'null' => false],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('tipo_id', 'tipos', 'id', 'CASCADE', 'SET NULL');
-        $this->forge->addForeignKey('usuario_id', 'usuarios', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('plantas', true);
+        $this->forge->addForeignKey('tipo_id', 'tipo', 'id', 'CASCADE', 'SET NULL');
+        $this->forge->addForeignKey('usuario_id', 'usuario', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('planta', true);
 
         // Favoritos
         $this->forge->addField([
             'id'            => ['type' => 'INT', 'auto_increment' => true],
             'usuario_id'    => ['type' => 'INT', 'null' => false],
             'planta_id'     => ['type' => 'INT', 'null' => false],
-            'data_registro' => ['type' => 'TIMESTAMP', 'default' => 'CURRENT_TIMESTAMP'],
+            'data_registro' => ['type' => 'DATETIME', 'null' => false],
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addUniqueKey(['usuario_id', 'planta_id']);
-        $this->forge->addForeignKey('usuario_id', 'usuarios', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('planta_id', 'plantas', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('favoritos', true);
+        $this->forge->addForeignKey('usuario_id', 'usuario', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('planta_id', 'planta', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('favorito', true);
 
         // Comentarios
         $this->forge->addField([
@@ -66,20 +65,20 @@ class CreateTables extends Migration
             'usuario_id'   => ['type' => 'INT', 'null' => false],
             'planta_id'    => ['type' => 'INT', 'null' => false],
             'texto'        => ['type' => 'TEXT', 'null' => false],
-            'data_criacao' => ['type' => 'TIMESTAMP', 'default' => 'CURRENT_TIMESTAMP'],
+            'data_criacao' => ['type' => 'DATETIME', 'null' => false],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('usuario_id', 'usuarios', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->addForeignKey('planta_id', 'plantas', 'id', 'CASCADE', 'CASCADE');
-        $this->forge->createTable('comentarios', true);
+        $this->forge->addForeignKey('usuario_id', 'usuario', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('planta_id', 'planta', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->createTable('comentario', true);
     }
 
     public function down()
     {
-        $this->forge->dropTable('comentarios', true);
-        $this->forge->dropTable('favoritos', true);
-        $this->forge->dropTable('plantas', true);
-        $this->forge->dropTable('usuarios', true);
-        $this->forge->dropTable('tipos', true);
+        $this->forge->dropTable('comentario', true);
+        $this->forge->dropTable('favorito', true);
+        $this->forge->dropTable('planta', true);
+        $this->forge->dropTable('usuario', true);
+        $this->forge->dropTable('tipo', true);
     }
 }

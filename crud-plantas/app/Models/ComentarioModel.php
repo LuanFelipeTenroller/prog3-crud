@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class ComentarioModel extends Model
 {
-    protected $table      = 'comentarios';
+    protected $table      = 'comentario';
     protected $primaryKey = 'id';
 
     protected $allowedFields = ['usuario_id', 'planta_id', 'texto', 'data_criacao'];
@@ -21,10 +21,10 @@ class ComentarioModel extends Model
 
     public function getComentariosByPlanta($plantaId)
     {
-        return $this->select('comentarios.*, usuarios.nome AS nome_usuario')
-                    ->join('usuarios', 'usuarios.id = comentarios.usuario_id')
-                    ->where('comentarios.planta_id', $plantaId)
-                    ->orderBy('comentarios.data_criacao', 'ASC')
+        return $this->select('comentario.*, usuario.nome AS nome_usuario')
+                    ->join('usuario', 'usuario.id = comentario.usuario_id')
+                    ->where('comentario.planta_id', $plantaId)
+                    ->orderBy('comentario.data_criacao', 'ASC')
                     ->findAll();
     }
 }
