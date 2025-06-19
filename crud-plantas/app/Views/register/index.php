@@ -55,7 +55,7 @@ document.getElementById('formCadastro').addEventListener('submit', async functio
     return;
   }
 
-  const res = await fetch('<?= base_url('usuarios') ?>', {
+  const res = await fetch('<?= base_url('usuario') ?>', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

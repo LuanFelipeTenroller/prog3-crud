@@ -9,10 +9,6 @@
     </form>
 </div>
 
-<a href="<?= base_url('tipos/create') ?>" class="btn mb-3" style="background-color: #5f7e49; color: white; border-radius: 20px;">
-    <i class="bi bi-plus-lg"></i> Adicionar Novo Tipo
-</a>
-
 <!-- Mensagens de sucesso ou erro -->
 <?php if (session()->getFlashdata('error')): ?>
     <div class="alert alert-danger">
@@ -33,18 +29,6 @@
                 <div>
                     <strong><?= esc($tipo['nome']) ?></strong><br>
                     <small class="text-muted"><?= esc($tipo['descricao']) ?></small>
-                </div>
-                <div>
-                    <a href="<?= base_url('tipos/edit/' . $tipo['id']) ?>" 
-                       class="btn btn-sm btn-primary me-1">
-                        Editar
-                    </a>
-                    <form action="<?= base_url('tipos/delete/' . $tipo['id']) ?>" method="post" style="display:inline;">
-                        <button type="submit" class="btn btn-sm btn-danger"
-                            onclick="return confirm('Tem certeza que deseja excluir este tipo?')">
-                            Excluir
-                        </button>
-                    </form>
                 </div>
             </li>
         <?php endforeach; ?>

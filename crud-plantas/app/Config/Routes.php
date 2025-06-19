@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 // ROTAS PÚBLICAS
-$routes->post('usuarios', 'UsuarioController::create');
+$routes->post('usuario', 'UsuarioController::create');
 $routes->get('login', 'AuthController::loginForm');
 $routes->post('login', 'AuthController::login');
 $routes->get('cadastro', 'AuthController::cadastroForm');
@@ -35,11 +35,8 @@ $routes->group('', ['filter' => 'jwt'], function($routes) {
     $routes->post('/favoritos/delete/(:num)', 'Favoritos::delete/$1');
 
     // Tipos
-    $routes->get('/tipos/create', 'Tipos::create');
     $routes->post('/tipos/store', 'Tipos::store');
     $routes->get('/tipos/edit/(:num)', 'Tipos::edit/$1');
-    $routes->post('/tipos/update/(:num)', 'Tipos::update/$1');
-    $routes->post('/tipos/delete/(:num)', 'Tipos::delete/$1');
     $routes->get('/tipos', 'Tipos::index');
 
     // Comentários
