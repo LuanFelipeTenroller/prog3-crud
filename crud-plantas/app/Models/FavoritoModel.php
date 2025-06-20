@@ -22,10 +22,10 @@ class FavoritoModel extends Model
 
     public function getFavoritosWithPlantas($usuarioId)
     {
-        return $this->select('favorito.*, plantas.nome as nome_planta, plantas.id as planta_id, favorito.data_registro')
-            ->join('plantas', 'plantas.id = favorito.planta_id')
+        return $this->select('favorito.*, planta.nome as nome_planta, planta.id as planta_id, favorito.data_registro')
+            ->join('planta', 'planta.id = favorito.planta_id')
             ->where('favorito.usuario_id', $usuarioId)
-            ->orderBy('plantas.nome', 'ASC')
+            ->orderBy('planta.nome', 'ASC')
             ->findAll();
     }
 }
