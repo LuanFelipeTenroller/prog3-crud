@@ -1,5 +1,6 @@
 <?php 
 helper('url'); 
+$isHomePage = true;
 $exibirHeader = false;
 include APPPATH . 'Views/templates/header.php'; 
 ?>
