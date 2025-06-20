@@ -16,9 +16,8 @@ include APPPATH . 'Views/templates/header.php';
             </div>
             <div class="mb-3 position-relative">
                 <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
-                <button type="button" class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0 mt-2 me-2" id="toggleSenha" tabindex="-1">
-                    <span id="iconSenha" class="bi bi-eye"></span>
-                </button>
+                <i class="bi bi-eye-slash toggle-password" id="toggleSenha"
+                    style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;"></i>
             </div>
             <div class="mb-3">
                 <input type="password" id="confirmaSenha" name="confirmaSenha" class="form-control" placeholder="Confirme a senha" required>
@@ -30,19 +29,17 @@ include APPPATH . 'Views/templates/header.php';
 </div>
 
 <script>
-document.getElementById('toggleSenha').addEventListener('click', function () {
-    const senhaInput = document.getElementById('senha');
-    const icon = document.getElementById('iconSenha');
-    if (senhaInput.type === 'password') {
-        senhaInput.type = 'text';
-        icon.classList.remove('bi-eye');
-        icon.classList.add('bi-eye-slash');
-    } else {
-        senhaInput.type = 'password';
-        icon.classList.remove('bi-eye-slash');
-        icon.classList.add('bi-eye');
-    }
-});
+document.addEventListener('DOMContentLoaded', function () {
+        const senhaInput = document.getElementById('senha');
+        const toggleSenha = document.getElementById('toggleSenha');
+
+        toggleSenha.addEventListener('click', function () {
+            const isPassword = senhaInput.type === 'password';
+            senhaInput.type = isPassword ? 'text' : 'password';
+            toggleSenha.classList.toggle('bi-eye');
+            toggleSenha.classList.toggle('bi-eye-slash');
+        });
+    });
 
 document.getElementById('formCadastro').addEventListener('submit', async function (e) {
   e.preventDefault();
