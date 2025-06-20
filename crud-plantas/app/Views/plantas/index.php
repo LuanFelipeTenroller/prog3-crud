@@ -22,12 +22,16 @@
                 </div>
                 <div>
                     <a href="<?= base_url('plantas/view/' . $planta['id']) ?>"
-                       class="btn btn-sm me-1"
-                       style="background-color: #5f7e49; color: white; border-radius: 5px;">
+                        class="btn btn-sm me-1"
+                        style="background-color: #5f7e49; color: white; border-radius: 5px;">
                         Ver
                     </a>
                     <?php if ($usuario_logado_id == $planta['usuario_cadastro_id']) : ?>
                         <a href="<?= base_url('plantas/edit/' . $planta['id']) ?>" class="btn btn-sm btn-primary me-1">Editar</a>
+
+                        <form action="<?= base_url('plantas/delete/' . $planta['id']) ?>" method="post" style="display:inline;" onsubmit="return confirm('Tem certeza que deseja excluir esta planta?');">
+                            <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                        </form>
                     <?php endif; ?>
 
 
@@ -74,10 +78,10 @@
             }
 
             if (token) {
-    const payloadBase64 = token.split('.')[1];
-    const payloadJson = atob(payloadBase64.replace(/-/g, '+').replace(/_/g, '/'));
-    console.log('Payload JWT:', JSON.parse(payloadJson));
-}
+                const payloadBase64 = token.split('.')[1];
+                const payloadJson = atob(payloadBase64.replace(/-/g, '+').replace(/_/g, '/'));
+                console.log('Payload JWT:', JSON.parse(payloadJson));
+            }
 
             try {
                 const response = await fetch(`${baseUrl}favoritos/store/${plantaId}`, {

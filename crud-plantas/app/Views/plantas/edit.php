@@ -41,17 +41,6 @@
                 </select>
             </div>
 
-            <!-- Botões alinhados à direita e com margem inferior -->
-            <div class="mt-3 mb-5">
-                <a href="<?= base_url('plantas') ?>" class="btn ms-2" style="border: 1px solid #5f7e49; color: #5f7e49; background-color: white; border-radius: 20px; padding-inline: 20px;">
-                    Cancelar
-                </a>
-                <button type="submit" class="btn" style="background-color: #5f7e49; color: white; border-radius: 20px; padding-inline: 20px;">
-                    Atualizar
-                </button>
-            </div>
-        </div>
-        <div class="col-12">
             <div class="mb-3">
                 <label for="imagem" class="form-label">Imagem:</label>
                 <input type="file" name="imagem" id="imagem" class="form-control" accept="image/*">
@@ -60,6 +49,16 @@
                         <img id="imagem-atual" src="<?= base_url('uploads/' . $planta['imagem']) ?>" alt="Imagem atual" style="max-width: 200px; border-radius: 10px;">
                     <?php endif; ?>
                 </div>
+            </div>
+
+            <!-- Botões alinhados à direita e com margem inferior -->
+            <div class="mt-3 mb-5">
+                <a href="<?= base_url('plantas') ?>" class="btn ms-2" style="border: 1px solid #5f7e49; color: #5f7e49; background-color: white; border-radius: 20px; padding-inline: 20px;">
+                    Cancelar
+                </a>
+                <button type="submit" class="btn" style="background-color: #5f7e49; color: white; border-radius: 20px; padding-inline: 20px;">
+                    Atualizar
+                </button>
             </div>
         </div>
     </div>
