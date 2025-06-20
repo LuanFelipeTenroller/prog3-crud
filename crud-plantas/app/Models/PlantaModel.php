@@ -26,11 +26,11 @@ protected $allowedFields = ['nome', 'especie', 'descricao', 'cuidados', 'data_re
 
     public function getPlantaWithTipo($id)
     {
-        return $this->select('planta.*, tipos.nome as tipo_nome')
-            ->join('tipos', 'tipos.id = planta.tipo_id', 'left')
+        return $this->select('planta.*, tipo.nome as tipo_nome')
+            ->join('tipo', 'tipo.id = planta.tipo_id', 'left')
             ->where('planta.id', $id)
             ->first();
-    }
+}
 
 public function getPlantasComFavorito($usuario_id)
     {
