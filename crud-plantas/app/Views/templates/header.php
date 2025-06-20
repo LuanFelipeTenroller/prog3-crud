@@ -34,7 +34,7 @@
         $uri = $request->getPath();
         $rotaAtual = trim($uri, '/');
 
-        if ($rotaAtual !== '') :
+        if (!isset($exibirHeader) || $exibirHeader === true) :
         ?>
             <nav class="navbar navbar-expand-lg rounded mt-3 px-3" style="background-color: #e1ecbb;">
                 <div class="navbar-nav d-flex flex-row gap-4">

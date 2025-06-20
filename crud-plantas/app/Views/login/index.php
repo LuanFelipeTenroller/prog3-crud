@@ -1,5 +1,6 @@
 <?php
 helper('url'); 
+$exibirHeader = false;
 include APPPATH . 'Views/templates/header.php'; 
 ?>
 
