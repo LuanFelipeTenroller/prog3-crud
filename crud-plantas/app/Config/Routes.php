@@ -21,7 +21,7 @@ $routes->group('', ['filter' => 'jwt'], function($routes) {
     $routes->post('/plantas/store', 'Plantas::store');
     $routes->get('/plantas/edit/(:num)', 'Plantas::edit/$1');
     $routes->post('/plantas/update/(:num)', 'Plantas::update/$1');
-    $routes->get('/plantas/delete/(:num)', 'Plantas::delete/$1');
+    $routes->post('/plantas/delete/(:num)', 'Plantas::delete/$1');
     $routes->get('/plantas', 'Plantas::index');
     $routes->get('/plantas/view/(:num)', 'Plantas::view/$1');
     $routes->get('plantas/listarComFavoritos', 'Plantas::listarComFavoritos');
