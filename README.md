@@ -2,7 +2,8 @@
 
 Este repositório contém um sistema web de **cadastro e gerenciamento de plantas ornamentais**, desenvolvido com **CodeIgniter 4**, **PHP** e **MySQL**. O projeto tem fins acadêmicos e foi pensado para exercitar os conceitos de CRUD, arquitetura MVC e banco de dados relacional.
 
-*Link do Vídeo da Apresentação do Projeto*: https://www.youtube.com/watch?v=vLulilNeDEM&ab_channel=LuizGustavoPrzygoda
+*Link do Vídeo da Apresentação do Projeto PHP*: https://www.youtube.com/watch?v=vLulilNeDEM&ab_channel=LuizGustavoPrzygoda
+*Link do Vídeo de Engenharia de Software II (UML, Modelo ER, Testes e Padrões de Projeto)*: 
 
 ---
 
