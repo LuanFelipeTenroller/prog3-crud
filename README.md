@@ -6,7 +6,7 @@ Este repositório contém um sistema web de **cadastro e gerenciamento de planta
 
 *Link do Vídeo de Engenharia de Software II (UML, Modelo ER, Testes e Padrões de Projeto)*: https://youtu.be/kC7z91bASxA (a partir do minuto 10:13 começam os conceitos de Engenharia de Software)
 
-<td><b>OS CONCEITOS DE ENGENHARIA DE SOFTWARE ESTÃO DENTRO DE "Docs"</b></td>
+<td><b>OS CONCEITOS DE ENGENHARIA DE SOFTWARE ESTÃO DENTRO DA PASTA "Docs"</b></td>
 ---
 
 ## 👨‍💻 Tecnologias Utilizadas
