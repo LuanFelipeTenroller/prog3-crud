@@ -4,7 +4,7 @@ Este repositório contém um sistema web de **cadastro e gerenciamento de planta
 
 *Link do Vídeo da Apresentação do Projeto PHP*: https://www.youtube.com/watch?v=vLulilNeDEM&ab_channel=LuizGustavoPrzygoda
 
-*Link do Vídeo de Engenharia de Software II (UML, Modelo ER, Testes e Padrões de Projeto)*: 
+*Link do Vídeo de Engenharia de Software II (UML, Modelo ER, Testes e Padrões de Projeto)*: https://youtu.be/kC7z91bASxA (a partir do minuto 10:13 começam os conceitos de Engenharia de Software)
 
 ---
 
